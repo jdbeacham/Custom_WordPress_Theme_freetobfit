@@ -6,6 +6,6 @@ Custom WordPress theme created for FreetoBFit. Based on the underscores starter 
 👏 custom styling  
 👏 popup (JS and PHP)  
 👏 custom menus  
-👏 Additional JavaScript to display more info  
+👏 Additional JavaScript to display more info on site
 
 https://freetobfit.com
