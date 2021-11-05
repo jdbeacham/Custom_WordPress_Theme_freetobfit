@@ -5,9 +5,9 @@ Custom WordPress theme created for FreetoBFit. Based on the underscores starter 
 
 🟢 extensive use of shortcode for frontpage elements and individual pages content  
 🟢 custom styling  
-🟢 custom sign-in form and 
+🟢 custom sign-in form and processing using the admin_post hooks  
 🟢 popup (JS and PHP)  
 🟢 custom menus  
-🟢 Additional JavaScript to display more info on site
+🟢 additional JavaScript to display more info on site
 
 https://freetobfit.com
