@@ -8,4 +8,4 @@ Custom WordPress theme created for FreetoBFit. Based on the underscores starter 
 👏 custom menus  
 👏 Additional JavaScript to display more info  
 
-http://freetobfit.com
+https://freetobfit.com
