@@ -85,8 +85,8 @@ function send_smtp_email( $phpmailer ) {
     $phpmailer->Port       = '465';
     $phpmailer->SMTPSecure = 'ssl';
     $phpmailer->SMTPAuth   = true;
-    $phpmailer->Username   = 'mailer@freetobfit.com';
-    $phpmailer->Password   = 'Stefday6875';
+    $phpmailer->Username   = '######@freetobfit.com';
+    $phpmailer->Password   = '############';
     $phpmailer->From       = 'kris@freetobfit.com';
     $phpmailer->FromName   = 'FreetoBFit';
 }
