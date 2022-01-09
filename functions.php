@@ -74,6 +74,26 @@ if ( ! function_exists( 'freetobfit_setup' ) ) :
 			)
 		);
 
+		// Change PHP Mailer Settings
+
+add_filter( 'wp_mail_content_type','set_my_mail_content_type' );
+add_action( 'phpmailer_init', 'send_smtp_email' );
+
+function send_smtp_email( $phpmailer ) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host       = 'smtp.dreamhost.com';
+    $phpmailer->Port       = '465';
+    $phpmailer->SMTPSecure = 'ssl';
+    $phpmailer->SMTPAuth   = true;
+    $phpmailer->Username   = 'mailer@freetobfit.com';
+    $phpmailer->Password   = 'Stefday6875';
+    $phpmailer->From       = 'kris@freetobfit.com';
+    $phpmailer->FromName   = 'FreetoBFit';
+}
+
+function set_my_mail_content_type() {
+    return "text/html";
+}
 
 		// Sign-up Processing
 
@@ -122,9 +142,34 @@ $wpdb->insert('ftbf_contact', array(
 	'client' => $client
 ));
 
+	if (isset($free)) {
+		$free = "&#10003 free class<br> ";
+	}
+	if (isset($pt)) {
+		$pt = "&#10003 personal training<br> ";
+	}
+	if (isset($info)) {
+		$info = "&#10003 more info<br>";
+	}
+	if (isset($client)) {
+		$client = "&#10003 client";
+	}
+
+	$extraMessage = '
+	checkboxes:<br>' . $free . $pt . $info . $client;
+
+    $to = 'kris@freetobfit.com';
+    $subject = 'New Member: ' . $firstname . ' ' . $lastname;
+    $message = '
+	<div style="font-size: 1.5em; font-weight: 600; color: #AD0000; margin-bottom: 5px;">FreetoBFit Member</div>
+	Name: ' . $firstname . ' ' . $lastname . '<br>
+	e-mail: ' . $email . '<br>
+	phone #: ' . $phone . '<br><br>' . 
+	$extraMessage; 
+
+    wp_mail( $to, $subject, $message );
+
 wp_redirect( 'https://freetobfit.com?joined=yes' );
-
-
 
 }
 
